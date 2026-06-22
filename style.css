@@ -7,7 +7,39 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Aumentando o tamanho base da fonte */
+    font-size: 1.4rem; 
+    line-height: 1.6;
 }
+
+#terminal {
+    width: 90%;
+    max-width: 600px;
+}
+
+/* Ajustando inputs e botões para acompanhar o tamanho do texto */
+input {
+    background: #000;
+    border: 1px solid #0f0;
+    color: #0f0;
+    padding: 15px; /* Aumentei um pouco o padding */
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 1.2rem; /* Fonte maior no campo de senha */
+}
+
+button {
+    background: #0f0;
+    color: #000;
+    border: none;
+    padding: 15px 30px; /* Botões mais robustos */
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
 
 #terminal {
     width: 90%;
