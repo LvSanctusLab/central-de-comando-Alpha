@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <div id="boot-screen" class="tela">
+    <div id="boot-screen" class="tela" style="display: block;">
         <p>> INICIANDO ARQUIVOS_ALPHA...</p>
         <p id="loading">></p>
     </div>
@@ -20,26 +20,44 @@
 
     <div id="main-screen" class="tela">
         <p>> BEM-VINDO AO TERMINAL ALPHA.</p>
-        <p>> <a href="arquivo1.txt" style="color: #0f0;">abrir_carta.log</a></p>
+        <p>> ARQUIVOS ENCONTRADOS:</p>
+        <button onclick="abrirArquivo('05.05.2025')">> 05.05.2025.log</button>
+    </div>
+
+    <div id="file-screen" class="tela">
+        <div id="file-content" style="white-space: pre-wrap; margin-bottom: 20px;"></div>
+        <button onclick="voltarAoMenu()">[ VOLTAR ]</button>
     </div>
 
     <script>
-        // Simulação de carregamento
+        // Simulando Boot
         setTimeout(() => { document.getElementById('loading').innerText = "> CARREGAMENTO CONCLUÍDO."; }, 1500);
         setTimeout(() => { 
             document.getElementById('boot-screen').style.display = 'none';
             document.getElementById('login-screen').style.display = 'block';
         }, 3000);
 
-        // Verificação de senha
         function verificarSenha() {
-            const senha = document.getElementById('senha').value;
-            if (senha === "24062025") { // TROQUE A SENHA AQUI
+            if (document.getElementById('senha').value === "240625") { // Mude sua senha aqui
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('main-screen').style.display = 'block';
-            } else {
-                alert("SENHA INCORRETA.");
-            }
+            } else { alert("SENHA INCORRETA."); }
+        }
+
+        // Função que abre o "sub-arquivo"
+        function abrirArquivo(id) {
+            const textos = {
+                '05.05.2025': "AQUI VOCÊ VAI COLAR O TEXTO LONGO DO 05.05.2025. Ele pode ser grande, ter quebras de linha e o sistema vai exibir tudo certinho para o seu amigo ler."
+            };
+            
+            document.getElementById('main-screen').style.display = 'none';
+            document.getElementById('file-content').innerText = textos[id];
+            document.getElementById('file-screen').style.display = 'block';
+        }
+
+        function voltarAoMenu() {
+            document.getElementById('file-screen').style.display = 'none';
+            document.getElementById('main-screen').style.display = 'block';
         }
     </script>
 </body>
