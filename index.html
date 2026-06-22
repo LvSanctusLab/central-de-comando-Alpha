@@ -3,16 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <title>CENTRAL_DE_COMANDO_ALPHA</title>
+    <title>CENTRAL_ALPHA</title>
 </head>
 <body>
-    <div id="terminal">
-        <h1>> INICIALIZANDO SISTEMA...</h1>
-        <p id="output">Conectando aos servidores LvSanctusLab...</p>
-        <div id="menu">
-            <p>> <a href="arquivo1.txt" style="color: #0f0;">abrir_carta.log</a></p>
-            <p>> <a href="arquivo2.txt" style="color: #0f0;">abrir_fisica.txt</a></p>
-        </div>
+
+    <div id="boot-screen" class="tela">
+        <p>> INICIANDO ARQUIVOS_ALPHA...</p>
+        <p id="loading">></p>
     </div>
+
+    <div id="login-screen" class="tela">
+        <p>> ACESSO RESTRITO. INSIRA A SENHA:</p>
+        <input type="password" id="senha" maxlength="8">
+        <button onclick="verificarSenha()">ENTRAR</button>
+    </div>
+
+    <div id="main-screen" class="tela">
+        <p>> BEM-VINDO AO TERMINAL ALPHA.</p>
+        <p>> <a href="arquivo1.txt" style="color: #0f0;">abrir_carta.log</a></p>
+    </div>
+
+    <script>
+        // Simulação de carregamento
+        setTimeout(() => { document.getElementById('loading').innerText = "> CARREGAMENTO CONCLUÍDO."; }, 1500);
+        setTimeout(() => { 
+            document.getElementById('boot-screen').style.display = 'none';
+            document.getElementById('login-screen').style.display = 'block';
+        }, 3000);
+
+        // Verificação de senha
+        function verificarSenha() {
+            const senha = document.getElementById('senha').value;
+            if (senha === "24062025") { // TROQUE A SENHA AQUI
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-screen').style.display = 'block';
+            } else {
+                alert("SENHA INCORRETA.");
+            }
+        }
+    </script>
 </body>
 </html>
