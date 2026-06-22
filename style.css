@@ -3,7 +3,6 @@ body {
     color: #0f0;
     font-family: 'Courier New', monospace;
     margin: 0;
-    padding: 20px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -11,16 +10,16 @@ body {
 }
 
 #terminal {
-    width: 100%;
+    width: 90%;
     max-width: 600px;
 }
 
-/* O segredo: a classe 'tela' esconde tudo por padrão */
+/* Esconde todas as telas por padrão */
 .tela {
-    display: none; 
+    display: none;
 }
 
-/* Quando uma tela estiver ativa, ela ocupa o espaço necessário */
+/* A tela que tiver a classe 'ativa' será exibida */
 .tela.ativa {
     display: block;
 }
@@ -32,4 +31,15 @@ input {
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
+    font-family: monospace;
+}
+
+button {
+    background: #0f0;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
 }
