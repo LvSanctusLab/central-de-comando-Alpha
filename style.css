@@ -1,34 +1,37 @@
+/* Configuração global do terminal */
 body {
     background-color: #000;
     color: #0f0;
     font-family: 'Courier New', monospace;
     margin: 0;
+    padding: 20px;
     height: 100vh;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
-    padding: 20px;
-    box-sizing: border-box;
+    justify-content: center; /* Centraliza tudo no meio */
+    align-items: center;
 }
 
+/* O container que vai segurar o conteúdo atual */
 #terminal {
     width: 100%;
     max-width: 600px;
-    text-align: left;
 }
 
-/* Deixa a tela de login mais organizada */
-#login-screen {
-    text-align: center;
+/* Esconde tudo o que tem a classe 'tela' por padrão */
+.tela {
+    display: none; 
+    width: 100%;
 }
 
+/* Estilo para campos de input e botões */
 input {
     background: #000;
     border: 1px solid #0f0;
     color: #0f0;
     padding: 10px;
-    font-size: 1.2rem;
-    width: 80%;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monospace;
     margin: 10px 0;
 }
 
@@ -39,4 +42,9 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
+    font-family: monospace;
+}
+
+button:hover {
+    background: #fff;
 }
