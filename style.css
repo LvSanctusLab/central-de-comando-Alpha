@@ -1,20 +1,11 @@
-body {
-    background-color: #000;
-    color: #0f0; /* Verde terminal */
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px;
-    margin: 0;
-}
+body { background-color: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 20px; }
+.tela { display: none; }
+#boot-screen { display: block; }
 
-#terminal {
-    max-width: 800px;
-    margin: auto;
+input { 
+    background: black; border: 1px solid #0f0; color: #0f0; 
+    padding: 10px; font-family: monospace; font-size: 1.2rem;
 }
-
-.cursor {
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
+button { 
+    background: #0f0; color: black; border: none; padding: 10px; cursor: pointer;
 }
