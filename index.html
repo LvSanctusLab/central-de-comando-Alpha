@@ -7,57 +7,62 @@
 </head>
 <body>
 
-    <div id="boot-screen" class="tela" style="display: block;">
-        <p>> INICIANDO ARQUIVOS_ALPHA...</p>
-        <p id="loading">></p>
-    </div>
+    <div id="terminal">
+        <div id="boot-screen" class="tela ativa">
+            <p>> INICIANDO ARQUIVOS_ALPHA...</p>
+            <p id="loading">></p>
+        </div>
 
-    <div id="login-screen" class="tela" style="display: none;">
-        <p>> ACESSO RESTRITO. INSIRA A SENHA:</p>
-        <input type="password" id="senha" maxlength="8">
-        <button onclick="verificarSenha()">ENTRAR</button>
-    </div>
+        <div id="login-screen" class="tela">
+            <p>> ACESSO RESTRITO. INSIRA A SENHA:</p>
+            <input type="password" id="senha" maxlength="8">
+            <button onclick="verificarSenha()">ENTRAR</button>
+        </div>
 
-    <div id="main-screen" class="tela" style="display: none;">
-        <p>> BEM-VINDO AO TERMINAL ALPHA.</p>
-        <p>> ARQUIVOS ENCONTRADOS:</p>
-        <button onclick="abrirArquivo('05.05.2025')">> 05.05.2025.log</button>
-    </div>
+        <div id="main-screen" class="tela">
+            <p>> BEM-VINDO AO TERMINAL ALPHA.</p>
+            <p>> ARQUIVOS ENCONTRADOS:</p>
+            <button onclick="abrirArquivo('05.05.2025')">> abrir_carta.log</button>
+        </div>
 
-    <div id="file-screen" class="tela" style="display: none;">
-        <div id="file-content" style="white-space: pre-wrap; margin-bottom: 20px;"></div>
-        <button onclick="voltarAoMenu()">[ VOLTAR ]</button>
+        <div id="file-screen" class="tela">
+            <div id="file-content" style="white-space: pre-wrap; margin-bottom: 20px;"></div>
+            <button onclick="voltarAoMenu()">[ VOLTAR ]</button>
+        </div>
     </div>
 
     <script>
-        // Simulando Boot
-        setTimeout(() => { document.getElementById('loading').innerText = "> CARREGAMENTO CONCLUÍDO."; }, 1500);
-        setTimeout(() => { 
-            document.getElementById('boot-screen').style.display = 'none';
-            document.getElementById('login-screen').style.display = 'block';
-        }, 3000);
+        // Lógica de trocar tela
+        function mostrarTela(id) {
+            document.querySelectorAll('.tela').forEach(t => t.classList.remove('ativa'));
+            document.getElementById(id).classList.add('ativa');
+        }
 
+        // Boot
+        setTimeout(() => { document.getElementById('loading').innerText = "> CARREGAMENTO CONCLUÍDO."; }, 1500);
+        setTimeout(() => { mostrarTela('login-screen'); }, 3000);
+
+        // Senha
         function verificarSenha() {
             if (document.getElementById('senha').value === "24062025") {
-                document.getElementById('login-screen').style.display = 'none';
-                document.getElementById('main-screen').style.display = 'block';
+                mostrarTela('main-screen');
             } else { alert("SENHA INCORRETA."); }
         }
 
+        // Arquivos
         function abrirArquivo(id) {
             const textos = {
-                '05.05.2025': "AQUI VAI O TEXTO LONGO DO 05.05.2025..."
+                '05.05.2025': "Aqui vai o texto da sua carta..."
             };
-            document.getElementById('main-screen').style.display = 'none';
             document.getElementById('file-content').innerText = textos[id];
-            document.getElementById('file-screen').style.display = 'block';
+            mostrarTela('file-screen');
         }
 
         function voltarAoMenu() {
-            document.getElementById('file-screen').style.display = 'none';
-            document.getElementById('main-screen').style.display = 'block';
+            mostrarTela('main-screen');
         }
     </script>
 </body>
 </html>
 
+        
